@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pymongo
+requests
+beautifulsoup4
+PyPDF2
+spacy
+sentence-transformers
