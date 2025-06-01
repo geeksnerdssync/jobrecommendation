@@ -8,11 +8,12 @@ app = FastAPI(title="Job Recommendation Backend")
 # Add CORS middleware to allow frontend requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React dev server origin
+    allow_origins=["http://localhost:3000", "https://jobrecommendation-l8lz.onrender.com"],  # React dev server origin and deployed frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 app.include_router(api_router)
 

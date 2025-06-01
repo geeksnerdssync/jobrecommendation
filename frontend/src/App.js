@@ -20,8 +20,8 @@ function App() {
     setLoading(true);
     const formData = new FormData();
     formData.append("file", resumeFile);
-    try {
-      const response = await axios.post("http://localhost:8000/upload_resume/", formData, {
+      try {
+      const response = await axios.post("https://jobrecommendation-l8lz.onrender.com/upload_resume/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setExtractedSkills(response.data.extracted_skills);
@@ -33,6 +33,8 @@ function App() {
     setLoading(false);
   };
 
+
+
   const fetchRecommendations = async () => {
     if (!skillsInput.trim()) {
       alert("Please enter skills to match jobs.");
@@ -41,13 +43,15 @@ function App() {
     setLoading(true);
     const skillsArray = skillsInput.split(",").map((s) => s.trim());
     try {
-      const response = await axios.post("http://localhost:8000/recommend_jobs/", skillsArray);
+      const response = await axios.post("https://jobrecommendation-l8lz.onrender.com/recommend_jobs/", skillsArray);
       setMatchedJobs(response.data.matched_jobs);
     } catch (error) {
       alert("Error fetching job recommendations: " + error.message);
     }
     setLoading(false);
   };
+
+
 
   return (
     <>
